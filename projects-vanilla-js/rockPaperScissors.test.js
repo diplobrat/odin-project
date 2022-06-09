@@ -1,11 +1,17 @@
-const computerPlay = require("./rockPaperScissors");
+const play = require("./rockPaperScissors");
 
-test("computerPlay() returns a non-null/undefined value", () => {
-    expect(computerPlay()).not.toBeUndefined();
-    expect(computerPlay()).not.toBeNull();
+test("rock should beat scissors", () => {
+    expect(play('rock', 'scissors')).toBe('You win!');
 });
 
-test("computerPlay() returns rock, paper, or scissors", () => {
-  const expected = ["rock", "paper", "scissors"]
-  expect(expected).toContain(computerPlay());
+test("scissors should beat paper", () => {
+  expect(play('scissors', 'paper')).toBe('You win!');
+});
+
+test("rock should lose to paper", () => {
+  expect(play('rock', 'paper')).toBe('You lose!');
+});
+
+test("paper should tie with paper", () => {
+  expect(play('paper', 'paper')).toBe("It's a tie!");
 });
