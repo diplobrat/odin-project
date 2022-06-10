@@ -2,50 +2,67 @@
 var computerPlay = require('./computerPlay')
 
 // assign computerChoice by invoking computerPlay
-let computerChoice = computerPlay();
+let computerChoice;
 
-// prompt user for rock, paper, or scissors
 const prompt = require('prompt-sync')();
-var playerChoice = prompt('Rock, Paper, or Scissors? > ').toLowerCase();
+
+// prompt user for how long they want to play
+const gameLength = parseInt(prompt('Choose best out of 3 or 5! > '));
+
+let playerChoice;
+
+// initialize score
+let yourScore = 0;
+let computerScore = 0;
 
 // play a game of rock paper scissors
 function play(playerChoice, computerChoice) {
+  computerChoice = computerPlay();
+  // prompt user for rock, paper, or scissors
+  playerChoice = prompt('Rock, Paper, or Scissors? > ').toLowerCase();
+
   console.log(`You chose ${playerChoice}`);
   console.log(`Computer chose ${computerChoice}`);
 
   // check if it's a tie
   if (playerChoice === computerChoice) {
-    return "It's a tie!";
+    return `It's a tie! Your score ${yourScore}, computer score: ${computerScore}`;
   }
 
     // check for rock
     if (playerChoice === 'rock') {
       if (computerChoice === 'scissors') {
-        return 'You win!';
+        yourScore ++;
+        return `You win! Your score ${yourScore}, computer score: ${computerScore}`;
       } else {
-        return 'You lose!';
+        computerScore ++;
+        return `You lose! Your score ${yourScore}, computer score: ${computerScore}`;
       }
     }
 
     // check for paper
     if (playerChoice === 'paper') {
       if (computerChoice === 'rock') {
-        return 'You win!';
+        yourScore ++;
+        return `You win! Your score ${yourScore}, computer score: ${computerScore}`;
       } else {
-        return 'You lose!';
+        computerScore ++;
+        return `You lose! Your score ${yourScore}, computer score: ${computerScore}`;
       }
     }
 
     // check for scissors
     if (playerChoice === 'scissors') {
       if (computerChoice === 'paper') {
-        return 'You win!';
+        yourScore ++;
+        return `You win! Your score ${yourScore}, computer score: ${computerScore}`;
       } else {
-        return 'You lose!';
+        computerScore ++;
+        return `You lose! Your score ${yourScore}, computer score: ${computerScore}`;
       }
     }
 }
 
-console.log(play(playerChoice, computerChoice));
+while (yourScore + computerScore < gameLength) { console.log(play(playerChoice, computerChoice)); }
 
 module.exports = play;
