@@ -5,6 +5,8 @@ A simple roshambo game built using vanilla JS.
 Clone repo
 <pre><code>gh repo clone diplobrat/odin-project</pre></code>
 
+Navigate to subdirectory
+<pre><code>cd rock-paper-scissors</pre></code>
 
 ## To do:
 - [ ] Refactor code -> split play() and multiplay
