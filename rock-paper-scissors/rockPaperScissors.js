@@ -1,14 +1,14 @@
 // import computer input from computerPlay module
 var computerPlay = require('./computerPlay')
 
-// assign computerChoice by invoking computerPlay
-let computerChoice;
-
+// require prompt
 const prompt = require('prompt-sync')();
 
 // prompt user for how long they want to play
 const gameLength = parseInt(prompt('Choose best out of 3 or 5! > '));
 
+// initialize computerChoice and PlayerChoice
+let computerChoice;
 let playerChoice;
 
 // initialize score
