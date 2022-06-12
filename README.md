@@ -1,5 +1,5 @@
 # Rock, Paper, Scissors
-A simple roshambo game played in terminal, built using vanilla JS.
+A simple roshambo game played in the command line, built using vanilla JS.
 
 ## Setup
 Clone repo
