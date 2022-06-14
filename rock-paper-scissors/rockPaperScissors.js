@@ -15,12 +15,15 @@ let playerChoice;
 let yourScore = 0;
 let computerScore = 0;
 
-// play a game of rock paper scissors
-function play(playerChoice, computerChoice) {
-  computerChoice = computerPlay();
-
-  // prompt user for rock, paper, or scissors
+// playerChoice prompt
+function playerSelection () {
   playerChoice = prompt('Rock, Paper, or Scissors? > ').toLowerCase();
+}
+
+// play a game of rock paper scissors
+function play() {
+  computerChoice = computerPlay();
+  playerSelection();
 
   console.log(`You chose ${playerChoice}`);
   console.log(`Computer chose ${computerChoice}`);
@@ -64,13 +67,6 @@ function play(playerChoice, computerChoice) {
     }
 }
 
-function gameLengthValidity(gameLength) {
-  while (gameLength != 3 && gameLength != 5) {
-    console.log('invalid choice');
-    gameLength = parseInt(prompt('Choose best out of 3 or 5! > '));
-  };
-};
-
 function gameLoop() {
   while (
     yourScore < Math.round(gameLength/2) &&
@@ -79,10 +75,13 @@ function gameLoop() {
   }
 }
 
-if (gameLength != 3 && gameLength != 5) {
-  gameLengthValidity(gameLength);
-} else {
-  gameLoop();
-}
+while (gameLength != 3 && gameLength != 5) {
+  console.log('invalid choice');
+  gameLength = parseInt(prompt('Choose best out of 3 or 5! > '));
+  if (gameLength === 3 || gameLength === 5) {
+    gameLoop();
+  }
+};
+
 
 module.exports = play;
