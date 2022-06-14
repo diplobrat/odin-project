@@ -16,6 +16,6 @@ Run unit tests (optional)
 
 ## To do:
 - [ ] Fix unit tests for rockPaperScissors.test.js
-- [ ] Refactor code -> split play() and multiplay
+- [x] Refactor code -> split play() and multiplay
 - [ ] Add AI -> take historicals of playerChoice and make computerChoice a fn of playerChoice
 - [ ] Add front end
