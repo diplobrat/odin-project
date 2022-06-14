@@ -1,5 +1,6 @@
-// import computer input from computerPlay module
-var computerPlay = require('./computerPlay')
+// import containerized modules
+var computerPlay = require('./computerPlay');
+var playerPlay = require('./playerPlay');
 
 // require prompt
 const prompt = require('prompt-sync')();
@@ -15,15 +16,10 @@ let playerChoice;
 let yourScore = 0;
 let computerScore = 0;
 
-// playerChoice prompt
-function playerSelection () {
-  playerChoice = prompt('Rock, Paper, or Scissors? > ').toLowerCase();
-}
-
 // play a game of rock paper scissors
 function play() {
   computerChoice = computerPlay();
-  playerSelection();
+  playerChoice = playerPlay();
 
   console.log(`You chose ${playerChoice}`);
   console.log(`Computer chose ${computerChoice}`);
@@ -76,7 +72,7 @@ function gameLoop() {
 }
 
 while (gameLength != 3 && gameLength != 5) {
-  console.log('invalid choice');
+  console.log('Invalid choice | Type 3 or 5');
   gameLength = parseInt(prompt('Choose best out of 3 or 5! > '));
   if (gameLength === 3 || gameLength === 5) {
     gameLoop();
