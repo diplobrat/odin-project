@@ -5,7 +5,7 @@ var computerPlay = require('./computerPlay')
 const prompt = require('prompt-sync')();
 
 // prompt user for how long they want to play
-const gameLength = parseInt(prompt('Choose best out of 3 or 5! > '));
+let gameLength = parseInt(prompt('Choose best out of 3 or 5! > '));
 
 // initialize computerChoice and PlayerChoice
 let computerChoice;
@@ -64,10 +64,25 @@ function play(playerChoice, computerChoice) {
     }
 }
 
-while (
-  yourScore < Math.round(gameLength/2) &&
-  computerScore < Math.round(gameLength/2)
-  ) {console.log(play(playerChoice, computerChoice));
+function gameLengthValidity(gameLength) {
+  while (gameLength != 3 && gameLength != 5) {
+    console.log('invalid choice');
+    gameLength = parseInt(prompt('Choose best out of 3 or 5! > '));
+  };
+};
+
+function gameLoop() {
+  while (
+    yourScore < Math.round(gameLength/2) &&
+    computerScore < Math.round(gameLength/2)
+    ) {console.log(play(playerChoice, computerChoice));
+  }
+}
+
+if (gameLength != 3 && gameLength != 5) {
+  gameLengthValidity(gameLength);
+} else {
+  gameLoop();
 }
 
 module.exports = play;
