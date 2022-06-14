@@ -71,13 +71,16 @@ function gameLoop() {
   }
 }
 
-while (gameLength != 3 && gameLength != 5) {
-  console.log('Invalid choice | Type 3 or 5');
-  gameLength = parseInt(prompt('Choose best out of 3 or 5! > '));
-  if (gameLength === 3 || gameLength === 5) {
-    gameLoop();
-  }
-};
-
+if (gameLength === 3 || gameLength === 5) {
+  gameLoop();
+} else {
+  while (gameLength != 3 && gameLength != 5) {
+    console.log('Invalid choice | Type 3 or 5');
+    gameLength = parseInt(prompt('Choose best out of 3 or 5! > '));
+    if (gameLength === 3 || gameLength === 5) {
+      gameLoop();
+    }
+  };
+}
 
 module.exports = play;
