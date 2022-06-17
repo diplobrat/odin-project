@@ -67,7 +67,7 @@ function gameLoop() {
   while (
     yourScore < Math.round(gameLength/2) &&
     computerScore < Math.round(gameLength/2)
-    ) {console.log(play(playerChoice, computerChoice));
+    ) {console.log(play());
   }
 }
 
