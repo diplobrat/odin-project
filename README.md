@@ -15,7 +15,7 @@ Run unit tests (optional)
 <pre><code>jest computerPlay.test.js</pre></code>
 
 ## To do:
-- [ ] Fix unit tests for rockPaperScissors.test.js
-- [x] Refactor code -> split play() and multiplay
+- [ ] Fix unit tests for rockPaperScissors.test.js and playerPlay.test.js
+- [x] Refactor code -> split play() and gameLoop
 - [ ] Add AI -> take historicals of playerChoice and make computerChoice a fn of playerChoice
 - [ ] Add front end
